@@ -1,4 +1,4 @@
 index.html
-.notes
-.bat
+*.notes
+*.bat
 node_modules
