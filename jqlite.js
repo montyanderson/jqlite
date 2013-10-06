@@ -1,4 +1,4 @@
-/* jquery.youtube.js 1.0 - Copyright 2013, Monty Anderson - http://montyanderson.co.uk */
+/* jqlite.js- Copyright 2013, Monty Anderson - http://montyanderson.co.uk */
 
 function jqlite() {
 
