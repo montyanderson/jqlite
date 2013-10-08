@@ -1,42 +1,46 @@
 /* jqlite.js- Copyright 2013, Monty Anderson - http://montyanderson.co.uk */
 
-function jqlite() {
-
-var $ = function(query) {
+function $(query) {
     
-    var target = "";
-    var method = new Object({});
+    var target;
+    var methods;
+
+    //Get element if it isn't the document
     
     if(query == document) {
         target = document;
     } else {
         target = document.querySelector(query);
     }
-    
-    method.html = function(html) {
+
+    //If previous ran properly it will create a new objects
+
+    if(target) {
+        methods = new Object({});
+    }
+
+    //Define all of the methods
+
+    methods.html = function(html) {
         target.innerHTML = html;
     }
-    
-    method.click = function(click) {
+
+    methods.click = function(click) {
         target.addEventListener("click", function() {
             click();
         });
     }
  
-    method.attr = function(attr, value) {
+    methods.attr = function(attr, value) {
         target.setAttribute(attr, value);
     }
     
-    method.ready = function(ready) {
-        target.addEventListener("DOMContentLoaded", function() {
+    methods.ready = function(ready) {
+        target.addEventListener("DOMContentLoaded", function() { //Will only work for document element
             ready();
         });
     }
     
-    return method;
+    return methods;
     
-}
-
-return $;
-
 }
